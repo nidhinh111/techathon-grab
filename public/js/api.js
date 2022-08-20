@@ -16,12 +16,12 @@ function login() {
     redirect: "follow",
   };
 
-  fetch("http://localhost:5000/api/v1/auth/login", requestOptions)
+  fetch("https://rider-rewards.herokuapp.com/api/v1/auth/login", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       if (result.success) {
         //Redirect to dashboard
-        window.location.href = "http://localhost:5000/orders";
+        window.location.href = "https://rider-rewards.herokuapp.com/orders";
       } else {
         document.getElementById("loginresponse").innerHTML =
           "<div class='alert alert-danger'><strong>Error!</strong> " +
@@ -38,12 +38,12 @@ function logout() {
     redirect: "follow",
   };
 
-  fetch("http://localhost:5000/api/v1/auth/logout", requestOptions)
+  fetch("https://rider-rewards.herokuapp.com/api/v1/auth/logout", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       if (result.success) {
         //Redirect to dashboard
-        window.location.href = "http://localhost:5000";
+        window.location.href = "https://rider-rewards.herokuapp.com/";
       } else {
         alert(result.error);
       }
@@ -67,7 +67,7 @@ function processorder(status, count) {
     redirect: "follow",
   };
 
-  fetch("http://localhost:5000/api/v1/order/processorder", requestOptions)
+  fetch("https://rider-rewards.herokuapp.com/api/v1/order/processorder", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       if (result.success && result.is_incentive_eligible == 1) {
@@ -121,7 +121,7 @@ function getrewards() {
     redirect: "follow",
   };
 
-  fetch("http://localhost:5000/api/v1/rewards/getreward", requestOptions)
+  fetch("https://rider-rewards.herokuapp.com/api/v1/rewards/getreward", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       if (result.success) {
@@ -155,12 +155,12 @@ function loginadmin() {
     redirect: "follow",
   };
 
-  fetch("http://localhost:5000/api/v1/auth/loginadmin", requestOptions)
+  fetch("https://rider-rewards.herokuapp.com/api/v1/auth/loginadmin", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       if (result.success) {
         //Redirect to dashboard
-        window.location.href = "http://localhost:5000/configuration";
+        window.location.href = "https://rider-rewards.herokuapp.com/configuration";
       } else {
         document.getElementById("loginresponse").innerHTML =
           "<div class='alert alert-danger'><strong>Error!</strong> " +
@@ -323,12 +323,12 @@ function redeem(id) {
     redirect: "follow",
   };
 
-  fetch("http://localhost:5000/api/v1/rewards/redeem", requestOptions)
+  fetch("https://rider-rewards.herokuapp.com/api/v1/rewards/redeem", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       if (result.success) {
         //Redirect to dashboard
-        window.location.href = "http://localhost:5000/rewards";
+        window.location.href = "https://rider-rewards.herokuapp.com/rewards";
       } else {
         alert(result.error);
       }
@@ -366,7 +366,7 @@ function saveconf(rewardId){
     redirect: "follow",
   };
 
-  fetch("http://localhost:5000/api/v1/configuration/save", requestOptions)
+  fetch("https://rider-rewards.herokuapp.com/api/v1/configuration/save", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       if (result.success) {
